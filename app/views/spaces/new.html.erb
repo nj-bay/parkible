@@ -1,0 +1,16 @@
+<h1> Create a new Parking Space </h1>
+
+<%= provide :title, "Post a Space for Rent" %>
+
+<%= form_for @space do |f| %>
+
+	<%= f.label :address %>
+	<%= f.text_field :address %>
+
+	<%= f.label :price %>
+	<%= f.text_field :price %>
+
+<br><br>
+	<%= f.submit "Add", :class => 'btn btn-primary' %>	
+
+<% end %>	
