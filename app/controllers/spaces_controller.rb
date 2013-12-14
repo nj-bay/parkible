@@ -1,9 +1,16 @@
 class SpacesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create]
 
+	def index
+		@spaces = Space.all
+		@hash = Gmaps4rails.build_markers(@spaces) do |space, marker|
+		  marker.lat space.latitude
+		  marker.lng space.longitude
+		end
+	end
+
 	def new
 		@space = Space.new
-		render :new
 	end
 	
 	def create
@@ -13,7 +20,7 @@ class SpacesController < ApplicationController
 		@space.user = current_user
 
 		if @space.save
-			redirect_to root_path
+			redirect_to space_path(@space)
 		else
 			render :new
 		end		
@@ -21,7 +28,6 @@ class SpacesController < ApplicationController
 
 	def show
 		@space = Space.find(params[:id])
-		render :new
 	end 
 
 	def update
