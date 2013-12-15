@@ -1,7 +1,7 @@
 class Space < ActiveRecord::Base
-	validates :address, :price, :user, :presence => true
+	validates :address, :price, :user, :latitude, :longitude, :presence => true
 	geocoded_by :address
-	after_validation :geocode#, if => :address_changed?
+	before_validation :geocode#, if => :address_changed?
 
 	belongs_to :user
 	
