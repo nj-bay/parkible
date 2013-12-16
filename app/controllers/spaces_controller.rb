@@ -26,11 +26,17 @@ class SpacesController < ApplicationController
 		else
 			render :new
 		end		
+	end	
+
+	def list
+		@space = Space.list
 	end		
 
 	def show
 		@space = Space.find(params[:id])
 	end 
+
+
 
 	def update
 		@space = Space.find(params[:id])

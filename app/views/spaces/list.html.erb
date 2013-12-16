@@ -1,0 +1,5 @@
+<ul>
+	<% @spaces.each do |space| %>
+		<li><%= space.id %>: Address <%= space.address %> - <%= space.latitude %>, <%= space.longitude %></li>
+	<% end %> 
+</ul>

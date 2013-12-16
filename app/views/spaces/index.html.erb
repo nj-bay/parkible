@@ -1,9 +1,5 @@
-<ul>
-	<% @spaces.each do |space| %>
-		<li><%= space.id %>: Address <%= space.address %> - <%= space.latitude %>, <%= space.longitude %></li>
-	<% end %> 
-</ul>
-
+<%= link_to "Post Your Space", "spaces/new" %> | 
+<%= link_to "List of Spaces", "spaces/list" %>
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
