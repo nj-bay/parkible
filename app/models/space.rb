@@ -4,5 +4,14 @@ class Space < ActiveRecord::Base
 	 mount_uploader :image, ImageUploader
 
 	belongs_to :user 
+
+	before_save :dollarize
+
+	private
+
+	def dollarize
+		price.round(2)
+		
+	end
 	
 end
